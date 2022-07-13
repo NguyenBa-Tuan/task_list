@@ -17,9 +17,14 @@ use App\Http\Controllers\HandleTaskController;
 Route::get('/', [HandleTaskController::class, 'index']);
 
 Route::post('/', [HandleTaskController::class, 'store']);
+
 Route::get('/delete/{id}', [HandleTaskController::class, 'delete']);
 
 Route::get('/update/{id}', [HandleTaskController::class, 'edit']);
+Route::post('/update/{id}', [HandleTaskController::class, 'update']);
+
+
+
 
 
 // Route::get('/', [HandleTaskController::class, 'create']);

@@ -41,6 +41,22 @@ class HandleTaskController extends Controller
         return view('update', compact('task'));
     }
 
+    public function update(Request $request,$id)
+    {
+        $task = Task::findOrFail($id);
+
+        // dd($task);
+
+        $dataRq = $request->all();
+
+        $task->name = $request->name;
+        
+        $task->save();
+
+        return redirect('/');
+
+    }
+
     public function delete($id)
     {
         $task = Task::findOrFail($id);
