@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HandleTaskController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/delete/{id}', [HandleTaskController::class, 'delete']);
 
 Route::get('/update/{id}', [HandleTaskController::class, 'edit']);
 Route::post('/update/{id}', [HandleTaskController::class, 'update']);
+
+Route::resource('/posts', PostController::class);
 
 
 
