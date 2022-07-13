@@ -30,8 +30,7 @@ class HandleTaskController extends Controller
 
         $data = Task::all();
 
-        echo '<p style="text-align:center;"> đã thêm thành công </p>';
-        return view('tasks', compact('data'));
+        return back()->with('store', 'Đã thêm thành công');
     }
 
     public function edit($id)
@@ -47,13 +46,11 @@ class HandleTaskController extends Controller
 
         // dd($task);
 
-        $dataRq = $request->all();
-
         $task->name = $request->name;
         
         $task->save();
 
-        return redirect('/');
+        return redirect('/')->with('update', 'Đã cập nhật thành công');
 
     }
 

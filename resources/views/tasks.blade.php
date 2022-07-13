@@ -2,6 +2,18 @@
 
 @section('Title', 'Task list')
 
+@if (session('delete'))
+    <p style="text-align: center;">{{ session('delete') }}</p>
+@endif  
+
+@if (session('store'))  
+    <p style="text-align: center;">{{ session('store') }}</p>
+@endif
+
+@if (session('update'))
+    <p style="text-align: center;">{{ session('update') }}</p>
+@endif
+
 @section('content')
 <div class="container">
     <h2>Thêm việc cần làm</h2>
