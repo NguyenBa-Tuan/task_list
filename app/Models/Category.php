@@ -5,20 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Info extends Model
+class category extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'id_number',
-        'phone',
-        'address',
-        'user_id',
+        'cate_name',
+        'cate_slug',
     ];
 
-    public function user()
-    {
-        return $this->hasOne('App\Models\User');
+    public function post(){
+        return $this->hasMany('App\Models\Post', 'cate_id', 'id');
     }
 }

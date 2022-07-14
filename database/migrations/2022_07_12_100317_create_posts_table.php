@@ -19,6 +19,11 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->string('images');
             $table->string('content');
+            $table->integer('cate_id')->unsigned();
+            $table->foreign('cate_id')
+                  ->references('id')
+                  ->on('categories')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
