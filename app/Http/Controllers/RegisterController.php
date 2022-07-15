@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\StoreRegister;
 
 class RegisterController extends Controller
 {
@@ -13,13 +14,13 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    public function store(Request $request)
+    public function store(StoreRegister $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'password' => 'required',
+        // ]);
         
         $user = $request->all();
         

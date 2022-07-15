@@ -11,6 +11,12 @@
             <div class="container">
                 <nav class="navbar navbar-default">
                     <!-- Navbar Contents -->
+                    @if (Auth::check())
+                        <a href="{{route('login.logout')}}">Đăng xuất</a>
+                    @else
+                        <a href="{{route('login.index')}}">Đăng nhập</a>
+                        <a href="{{route('register.index')}}">Đăng Ký</a>
+                    @endif
                 </nav>
             </div>
 

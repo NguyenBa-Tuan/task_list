@@ -8,7 +8,7 @@
             <p style="text-align: center;">{{session('store')}}</p>
         @endif
         <div class="container">
-            <a href="/posts/create">Thêm mới</a>
+            <a href="{{route('posts.create')}}">Thêm mới</a>
         </div>
 
         <div class="container">

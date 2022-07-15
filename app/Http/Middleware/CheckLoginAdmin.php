@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckLoginAdmin 
 {
@@ -16,7 +17,18 @@ class CheckLoginAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        echo 'tesst';
+        if(!$this->isLogin()){
+            return redirect('/login')->with('needLogin', 'Bạn cần đăng nhập');
+        }
         return $next($request);
+    }
+
+    public function isLogin()
+    {
+        if(Auth::check()){
+            return true;
+        }
+
+        return false;
     }
 }
